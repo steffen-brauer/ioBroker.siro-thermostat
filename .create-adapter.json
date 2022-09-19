@@ -1,0 +1,38 @@
+{
+    "cli": true,
+    "target": "directory",
+    "adapterName": "siro-thermostat",
+    "title": "siro-thermostat",
+    "expert": "no",
+    "features": [
+        "adapter"
+    ],
+    "adminFeatures": [],
+    "type": "climate-control",
+    "startMode": "daemon",
+    "connectionType": "local",
+    "dataSource": "push",
+    "connectionIndicator": "no",
+    "language": "JavaScript",
+    "nodeVersion": "14",
+    "adminUi": "react",
+    "tools": [
+        "ESLint",
+        "type checking"
+    ],
+    "releaseScript": "yes",
+    "devServer": "yes",
+    "devServerPort": 8081,
+    "indentation": "Space (4)",
+    "quotes": "single",
+    "es6class": "yes",
+    "authorName": "steffen-brauer",
+    "authorGithub": "steffen-brauer",
+    "authorEmail": "steffen.brauer@mail.de",
+    "gitRemoteProtocol": "HTTPS",
+    "gitCommit": "no",
+    "defaultBranch": "main",
+    "license": "MIT License",
+    "dependabot": "no",
+    "creatorVersion": "2.2.1"
+}
