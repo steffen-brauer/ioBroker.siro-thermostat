@@ -13,7 +13,7 @@ const Device = require('./lib/thermostats')
 
 
 var devices = [
-    { id: 'bfd3bb77ddac9242d4zfnj', key: 'fc3523cab0822886', version: '3.3'}
+    { id: 'bfd3bb77ddac9242d4zfnj', key: 'fc3523cab0822886', version: '3.3'} 
 ]
 
 class SiroThermostat extends utils.Adapter {
@@ -41,8 +41,19 @@ class SiroThermostat extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
+        
+        let devices
 
-        devices = JSON.parse(this.config.devices)
+        
+        try{
+            if(!this.config.devices) throw 'Initial instance';
+            devices = JSON.parse(this.config.devices )
+            if (devices.length == 0) throw 'No devices configured';
+
+        }catch(err){
+            devices = [] // create empty list.. there is no configuration yet
+            this.log.info('Looks like no devices are configured.. check your instance configuration')
+        }
         devices.forEach(d => {
             if (!d.id) return 
             this.deviceList[d.id] = new Device(this, d)
