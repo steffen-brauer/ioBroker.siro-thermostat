@@ -254,7 +254,7 @@ class Settings extends React.Component {
       this.setDeviceList(this.state.devices)
     }
 
-    onRevert = index => {
+    onRevert(index){
         let devices = this.getDeviceList()
         let row = devices[index]
         row = {...row, isEditMode:false}
@@ -266,7 +266,7 @@ class Settings extends React.Component {
           });
       }
 
-    onToggleEditMode = index => {
+    onToggleEditMode(index) {
         var editMode
         const newRows =  this.state.devices.map((row,i) => {
             if (index == i) {
@@ -288,7 +288,7 @@ class Settings extends React.Component {
         }
       }
 
-    onChange = (e, index) => {
+    onChange(e, index) {
         const value = e.target.value;
         const name = e.target.name;
       
@@ -324,7 +324,7 @@ class Settings extends React.Component {
         )
     }
 
-    onAddEntry = () => {
+    onAddEntry(){
         const row = {
             isEditMode:true,
             version: "3.3"
