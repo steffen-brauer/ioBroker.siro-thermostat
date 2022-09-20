@@ -1,6 +1,6 @@
 {
   "name": "iobroker.siro-thermostat",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "siro-thermostat",
   "author": {
     "name": "steffen-brauer",
