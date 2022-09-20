@@ -9,12 +9,12 @@
 const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
-const Device = require('./lib/thermostats')
+const Device = require('./lib/thermostats');
 
 
-var devices = [
-    { id: 'bfd3bb77ddac9242d4zfnj', key: 'fc3523cab0822886', version: '3.3'} 
-]
+// var devices = [
+//     { id: 'bfd3bb77ddac9242d4zfnj', key: 'fc3523cab0822886', version: '3.3'}
+// ];
 
 class SiroThermostat extends utils.Adapter {
 
@@ -30,7 +30,7 @@ class SiroThermostat extends utils.Adapter {
         this.on('stateChange', this.onStateChange.bind(this));
         this.on('unload', this.onUnload.bind(this));
 
-        this.deviceList = {}
+        this.deviceList = {};
     }
 
     /**
@@ -41,23 +41,23 @@ class SiroThermostat extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        
-        let devices
 
-        
+        let devices;
+
+
         try{
             if(!this.config.devices) throw 'Initial instance';
-            devices = JSON.parse(this.config.devices )
+            devices = JSON.parse(this.config.devices );
             if (devices.length == 0) throw 'No devices configured';
 
         }catch(err){
-            devices = [] // create empty list.. there is no configuration yet
-            this.log.info('Looks like no devices are configured.. check your instance configuration')
+            devices = []; // create empty list.. there is no configuration yet
+            this.log.info('Looks like no devices are configured.. check your instance configuration');
         }
         devices.forEach(d => {
-            if (!d.id) return 
-            this.deviceList[d.id] = new Device(this, d)
-        })
+            if (!d.id) return;
+            this.deviceList[d.id] = new Device(this, d);
+        });
         await this.subscribeStatesAsync('*');
     }
 
@@ -69,8 +69,8 @@ class SiroThermostat extends utils.Adapter {
         try {
             // Here you must clear all timeouts or intervals that may still be active
             this.deviceList.forEach(device => {
-                device.device.disconnect()
-            })
+                device.device.disconnect();
+            });
 
             callback();
         } catch (e) {
@@ -88,11 +88,11 @@ class SiroThermostat extends utils.Adapter {
             // The state was changed in ioBroker
             if(!state.ack){
                 this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-                const parts = id.split('.')
-                const deviceId = parts[3]
-                const stateName = parts[4]
+                const parts = id.split('.');
+                const deviceId = parts[3];
+                const stateName = parts[4];
                 // const dps = DPSMappingReverse[stateName]
-                this.deviceList[deviceId].setState(stateName, state.val)
+                this.deviceList[deviceId].setState(stateName, state.val);
             }
         } else {
             // The state was deleted
