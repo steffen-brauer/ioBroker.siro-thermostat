@@ -1,4 +1,5 @@
 {
     "siro-thermostat adapter settings": "Adapter settings for siro-thermostat",
-    "devices": "devices"
+    "devices": "devices",
+    "reconnect": "reconnect interval"
 }

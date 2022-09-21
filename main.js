@@ -44,18 +44,18 @@ class SiroThermostat extends utils.Adapter {
 
         let devices;
 
-
         try{
-            if(!this.config.devices) throw 'Initial instance';
+            if(!this.config.devices) throw 'Initial device settings. Please configure devices';
             devices = JSON.parse(this.config.devices );
             if (devices.length == 0) throw 'No devices configured';
 
         }catch(err){
             devices = []; // create empty list.. there is no configuration yet
-            this.log.info('Looks like no devices are configured.. check your instance configuration');
+            this.log.error('Looks like no devices are configured.. check your instance configuration');
         }
         devices.forEach(d => {
             if (!d.id) return;
+            d.timeout = this.config.reconnect;
             this.deviceList[d.id] = new Device(this, d);
         });
         await this.subscribeStatesAsync('*');
@@ -69,7 +69,7 @@ class SiroThermostat extends utils.Adapter {
         try {
             // Here you must clear all timeouts or intervals that may still be active
             this.deviceList.forEach(device => {
-                device.device.disconnect();
+                device.disconnect();
             });
 
             callback();
