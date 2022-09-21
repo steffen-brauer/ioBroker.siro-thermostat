@@ -1,4 +1,6 @@
 {
     "siro-thermostat adapter settings": "Impostazioni dell'adattatore per siro-termostato",
-    "devices": "dispositivi"
+    "devices": "dispositivi",
+    "timeout": "Tempo scaduto",
+    "reconnect": "intervallo di riconnessione"
 }

@@ -1,4 +1,6 @@
 {
     "siro-thermostat adapter settings": "siro-thermostat 的适配器设置",
-    "devices": "设备"
+    "devices": "设备",
+    "timeout": "超时",
+    "reconnect": "重新连接间隔"
 }

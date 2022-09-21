@@ -1,4 +1,6 @@
 {
     "siro-thermostat adapter settings": "Adaptereinstellungen für Siro-Thermostat",
-    "devices": "Geräte"
+    "devices": "Geräte",
+    "timeout": "Timeout",
+    "reconnect": "Wiederverbindungsintervall"
 }

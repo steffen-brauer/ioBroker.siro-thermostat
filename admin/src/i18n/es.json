@@ -1,4 +1,6 @@
 {
     "siro-thermostat adapter settings": "Ajustes del adaptador para siro-termostato",
-    "devices": "dispositivos"
+    "devices": "dispositivos",
+    "timeout": "tiempo de espera",
+    "reconnect": "intervalo de reconexión"
 }

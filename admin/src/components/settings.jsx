@@ -111,7 +111,7 @@ class Settings extends React.Component {
         super(props);
         this.state = {};
         this.devices = JSON.parse(this.props.native['devices'] || '[]' );
-        console.log(this.devices);
+        this.props.native['reconnect'] = (this.props.native['reconnect']) ? this.props.native['reconnect'] : 30;
         this.state = {
             devices: this.devices
         };
@@ -168,11 +168,9 @@ class Settings extends React.Component {
         );
     }
 
-
-
     renderTable(){
         return (
-            <Table aria-label="caption table">
+            <Table aria-label="caption table" size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell align="left">friendly name</TableCell>
@@ -193,12 +191,14 @@ class Settings extends React.Component {
                                 {row.isEditMode ? (
                                     <>
                                         <IconButton
+                                            size="small"
                                             aria-label="done"
                                             onClick={() => this.onToggleEditMode(index)}
                                         >
                                             <DoneIcon />
                                         </IconButton>
                                         <IconButton
+                                            size="small"
                                             aria-label="revert"
                                             onClick={() => this.onRevert(index)}
                                         >
@@ -207,12 +207,14 @@ class Settings extends React.Component {
                                     </>
                                 ) : (
                                     <div><IconButton
+                                        size="small"
                                         aria-label="edit"
                                         onClick={() => this.onToggleEditMode(index)}
                                     >
                                         <EditIcon />
                                     </IconButton>
                                     <IconButton
+                                        size="small"
                                         aria-label="delete"
                                         onClick={() => this.onDelete(index)}
                                     >
@@ -305,11 +307,10 @@ class Settings extends React.Component {
     render() {
         return (
             <form className={this.props.classes.tab}>
-                {//this.renderInput('JSON Settings', 'option2', 'text')
-                }<br />
-                {this.renderButton('Add new device', this.onAddEntry.bind(this))}
-                {this.renderTable('Devices','devices','text')
-                }
+                <br />
+                {this.renderInput('reconnect', 'reconnect', 'number')}<br /><br />
+                {this.renderButton('Add new device', this.onAddEntry.bind(this))}<br />
+                {this.renderTable()}
             </form>
         );
     }

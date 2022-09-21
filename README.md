@@ -20,31 +20,19 @@ tbh.. I did not try to use the tuya adapter, because it looked overkill for my u
 
 
 # Adapter Configuration
+
+![This is an image](docs/settings.png)
+
+reconnect timeout: Define the time interval in seconds before the adapter tries to reconnect to a device, that was not able to connect initially or that lost connection inbeetween.
+
+Devices:
 You have to add your devices to the adapter manually,
-therefore you have to extract some required data from your devices.
+therefore you have to insert the device id and local key. Version should always stay 3.3
+Friendly name is for easy identification of your device.
 
+see [how to extract local key](docs/how-to-extract-local-key.md)
 
-## Extract device id & local key
-For configuring the devices you need to enter the device id and local key of your devices. There are a lot of ways on how to retrieve that local key.
-
-I like to share the way I did it.
-For the time beeing I don't have an android device, nor is my iPhone jailbraked or any other dirty tricks going on. Here is how I did it.
-
-1. Intall an android emulator. My choice [MEMU](https://www.memuplay.com/de/), but it should work with any emulator you can enable root access on. For MEMU it's jusdt a simple setting. 
-!!! _INSERT_PICTURE_HERE__ !!!
-
-2. Install Smart Life App version xx.yy
-3. Open Smart Life App and login in to your account. Make your device shows up.
-4. Close the app
-5. Install Titanium Backup App
-6. Create a backup of the smart life app
-7. Copy the files to the download folder (It is link to your local Download Folder) For that step you can make use of the built-in file explorer
-8. Extract the backup archive
-9. Look for the file (shared_prefs)
-10. Extract your device settings. You can do that manually or if you are lazy like me use the [TuyaKeyExtractor](https://github.com/MarkWattTech/TuyaKeyExtractor)
-11. Here you are.
-
-**Hint**: If you reset your device (i.e. when changing your wifi settings) a new device id and local key is generated and your have to repeat this step.
+**Hint**: If you reset your device (i.e. when changing your wifi settings) a new device id and local key is generated and your have to repeat the extraction.
 
 
 ### Some personal notes on this project
@@ -64,8 +52,6 @@ There is not a lot of choice when looking for thermostats with these requirement
 The ioBroker requirement is solved by creating this adapter. :) 
 The "no cloud" requirement is solved using the cloud connection for initial device setup. After that is finished, you can block internet traffic in your firewall settings / router settings. Ofc, this part is optional. I prefer keeping the smart devices local only. There are other possibilites to control them over the internet like VPN.
 
-## Developer manual
-This section is intended for the developer. It can be deleted later.
 
 ## Changelog
 For a detailed change log see [Changelog](CHANGELOG.md)
