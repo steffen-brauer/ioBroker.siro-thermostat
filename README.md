@@ -55,7 +55,7 @@ The "no cloud" requirement is solved using the cloud connection for initial devi
 
 ## Changelog
 
-current version: v0.3.0
+current version: v0.3.1
 
 For a detailed change log see [Changelog](CHANGELOG.md)
 

@@ -30,6 +30,7 @@ class SiroThermostat extends utils.Adapter {
         this.on('stateChange', this.onStateChange.bind(this));
         this.on('unload', this.onUnload.bind(this));
 
+        this.connected_devices = 0;
         this.deviceList = {};
     }
 
@@ -38,7 +39,35 @@ class SiroThermostat extends utils.Adapter {
      */
     async onReady() {
         // Initialize your adapter here
+        // for some reason the configuration in io-package.json is not working
+        await this.setObjectNotExists('info.connection', {
+            type: 'state',
+            common: {
+                'role': 'indicator.connected',
+                'name': 'if connected to thermostats',
+                'type': 'boolean',
+                'read': true,
+                'write': false,
+                'def': false
+            },
+            native: {}
+        });
 
+        await this.setObjectNotExists('info.connected', {
+            type: 'state',
+            common: {
+                'role': 'state',
+                'name': 'if connected to thermostats',
+                'type': 'number',
+                'read': true,
+                'write': false,
+                'def': 0
+            },
+            native: {}
+        });
+
+        await this.setState('info.connection', false, true);
+        await this.setState('info.connected', 0, true);
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
 
@@ -59,6 +88,17 @@ class SiroThermostat extends utils.Adapter {
             this.deviceList[d.id] = new Device(this, d);
         });
         await this.subscribeStatesAsync('*');
+    }
+
+    async connectionStatus(connected){
+        if(connected){
+            this.connected_devices++;
+        }else{
+            this.connected_devices--;
+        }
+        this.log.debug(`connected: ${this.connected_devices}`);
+        this.setState('info.connected', this.connected_devices, true);
+        this.setState('info.connection', (this.connected_devices > 0), true);
     }
 
     /**

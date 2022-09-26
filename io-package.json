@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "siro-thermostat",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "news": {
+            "0.3.1": {
+                "en": "added info.connection",
+                "de": "info.connection hinzugefügt",
+                "ru": "добавлено инфо.соединение",
+                "pt": "adicionado info.connection",
+                "nl": "info.verbinding toegevoegd",
+                "fr": "infos ajoutées.connexion",
+                "it": "aggiunta info.connessione",
+                "es": "conexión de información agregada",
+                "pl": "dodano info.połączenie",
+                "zh-cn": "添加了 info.connection"
+            },
             "0.3.0": {
                 "en": "added device settings to states",
                 "de": "Geräteeinstellungen zu Zuständen hinzugefügt",
@@ -107,5 +119,27 @@
         "reconnect": 30
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "if connected to thermostats",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }
