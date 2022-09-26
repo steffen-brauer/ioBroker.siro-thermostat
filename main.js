@@ -90,8 +90,7 @@ class SiroThermostat extends utils.Adapter {
                 this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
                 const parts = id.split('.');
                 const deviceId = parts[3];
-                const stateName = parts[4];
-                // const dps = DPSMappingReverse[stateName]
+                const stateName = ( parts[4] == 'settings' ) ? parts.slice(4,6).join('.') : parts[4];
                 this.deviceList[deviceId].setState(stateName, state.val);
             }
         } else {

@@ -1,9 +1,33 @@
 {
     "common": {
         "name": "siro-thermostat",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "news": {
-            "0.0.1": {
+            "0.3.0": {
+                "en": "added device settings to states",
+                "de": "Geräteeinstellungen zu Zuständen hinzugefügt",
+                "ru": "добавлены настройки устройства в штаты",
+                "pt": "configurações do dispositivo adicionadas aos estados",
+                "nl": "apparaatinstellingen toegevoegd aan toestanden",
+                "fr": "ajout des paramètres de l'appareil aux états",
+                "it": "aggiunte le impostazioni del dispositivo agli stati",
+                "es": "configuración del dispositivo agregado a los estados",
+                "pl": "dodano ustawienia urządzenia do stanów",
+                "zh-cn": "将设备设置添加到状态"
+            },
+            "0.2.0": {
+                "en": "added automatic reconnection feature",
+                "de": "automatische Wiederverbindungsfunktion hinzugefügt",
+                "ru": "добавлена ​​функция автоматического переподключения",
+                "pt": "adicionado recurso de reconexão automática",
+                "nl": "automatische herverbindingsfunctie toegevoegd",
+                "fr": "fonctionnalité de reconnexion automatique ajoutée",
+                "it": "aggiunta funzione di riconnessione automatica",
+                "es": "característica de reconexión automática agregada",
+                "pl": "dodano funkcję automatycznego ponownego łączenia",
+                "zh-cn": "添加了自动重新连接功能"
+            },
+            "0.1.0": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
