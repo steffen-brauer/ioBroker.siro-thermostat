@@ -54,14 +54,11 @@ The "no cloud" requirement is solved using the cloud connection for initial devi
 
 
 ## Changelog
+
+current version: v0.3.0
+
 For a detailed change log see [Changelog](CHANGELOG.md)
 
-### **TODO FEATURES**
-- change device settings
-    - actual temperature compensation
-    - limit max desired temperature
-    - limit min desired temperature
-    - default device state
 
 ### **Out of scope**
 Currently it is not planned to support weekly programs using device native functions. We can make use of iobroker for that. Have a look at the calender adapter or implement scheduling yourself with the javascript adapter.
