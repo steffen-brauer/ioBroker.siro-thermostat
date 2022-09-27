@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "siro-thermostat",
-        "version": "0.3.1",
+        "version": "0.4.0",
         "news": {
+            "0.4.0": {
+                "en": "value conversion",
+                "de": "Wertumwandlung",
+                "ru": "преобразование стоимости",
+                "pt": "conversão de valor",
+                "nl": "waarde conversie",
+                "fr": "conversion de valeur",
+                "it": "conversione di valore",
+                "es": "conversión de valor",
+                "pl": "konwersja wartości",
+                "zh-cn": "价值转换"
+            },
             "0.3.1": {
                 "en": "added info.connection",
                 "de": "info.connection hinzugefügt",
