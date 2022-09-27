@@ -57,7 +57,7 @@ class SiroThermostat extends utils.Adapter {
             type: 'state',
             common: {
                 'role': 'state',
-                'name': 'if connected to thermostats',
+                'name': 'number of devices connected to instance',
                 'type': 'number',
                 'read': true,
                 'write': false,
@@ -129,8 +129,8 @@ class SiroThermostat extends utils.Adapter {
             if(!state.ack){
                 this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
                 const parts = id.split('.');
-                const deviceId = parts[3];
-                const stateName = ( parts[4] == 'settings' ) ? parts.slice(4,6).join('.') : parts[4];
+                const deviceId = parts[2];
+                const stateName = ( parts[3] == 'settings' ) ? parts.slice(3,5).join('.') : parts[3];
                 this.deviceList[deviceId].setState(stateName, state.val);
             }
         } else {
