@@ -53,9 +53,17 @@ The ioBroker requirement is solved by creating this adapter. :)
 The "no cloud" requirement is solved using the cloud connection for initial device setup. After that is finished, you can block internet traffic in your firewall settings / router settings. Ofc, this part is optional. I prefer keeping the smart devices local only. There are other possibilites to control them over the internet like VPN.
 
 
-## Changelog
+## Current Version
 
-current version: v0.3.1
+## [0.4.0] - 2022-09-26
+### Added
+- value conversion 
+
+### Changed
+- configured devices are listed as channels on the top most possible hierarchy (adapter.X.DeviceId)
+
+### Removed
+- "device" channel
 
 For a detailed change log see [Changelog](CHANGELOG.md)
 
