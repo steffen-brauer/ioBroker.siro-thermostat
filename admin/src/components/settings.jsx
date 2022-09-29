@@ -115,7 +115,6 @@ class Settings extends React.Component {
         this.state = {
             devices: this.devices
         };
-
     }
 
     /**
@@ -174,6 +173,7 @@ class Settings extends React.Component {
                 <TableHead>
                     <TableRow>
                         <TableCell align="left">friendly name</TableCell>
+                        <TableCell align="left">ip address/hostname</TableCell>
                         <TableCell align="left">device id</TableCell>
                         <TableCell align="left">local key</TableCell>
                         <TableCell align="left">version</TableCell>
@@ -184,6 +184,7 @@ class Settings extends React.Component {
                     {this.state.devices.map((row, index) => (
                         <TableRow key={index}>
                             <CustomTableCell {...{ row, index, name: 'name', onChange: this.onChange.bind(this) }} />
+                            <CustomTableCell {...{ row, index, name: 'ip', onChange: this.onChange.bind(this) }} />
                             <CustomTableCell {...{ row, index, name: 'id', onChange:this.onChange.bind(this) }} />
                             <CustomTableCell {...{ row, index, name: 'key', onChange:this.onChange.bind(this) }} />
                             <CustomTableCell {...{ row, index, name: 'version', onChange:this.onChange.bind(this) }} />
